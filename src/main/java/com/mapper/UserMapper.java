@@ -23,5 +23,6 @@ public interface UserMapper {
 	// 1.根据id找到用户selectById
 	public User selectUserById(int id);
 	public void updateuser(int id);
+	public  int selct_UIdByUNM(String userName);
 	
 }

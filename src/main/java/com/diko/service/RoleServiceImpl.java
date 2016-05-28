@@ -25,14 +25,22 @@ public class RoleServiceImpl implements RoleService {
 	}
 
 
-	@Override
-	public void updateU_R(int userId) {
-		roleMapper.updateU_R(userId);
-	}
+	
 
 	@Override
 	public RootSelect select_afterupdateU_R(int userId) {
 		return roleMapper.select_afterupdateU_R(userId);
+	}
+
+	@Override
+	public void updateU_R(int userId, int roleId) {
+		roleMapper.updateU_R(userId, roleId);
+		
+	}
+
+	@Override
+	public int selectRidbyRnm(String rolename) {
+		return roleMapper.selectRidbyRnm(rolename);
 	}
 
 	

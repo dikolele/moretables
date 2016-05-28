@@ -4,7 +4,6 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.diko.po.RootSelect;
 import com.diko.po.User;
 import com.diko.service.RoleService;
 import com.diko.service.UserService;
@@ -97,14 +97,11 @@ public class DIKOController {
 	public ModelAndView afterChange(@RequestParam (value="userName",required=true) String userName,
 									@RequestParam (value="rolename",required=true) String rolename){
 		ModelAndView mav = new ModelAndView();
-		
-//		userservice.updateuser(userId);
-//		roleService.updateU_R(userId);
-//		User user = userservice.selectUserById(userId);
-//		String rnm = roleService.selectRolename(userId) ;
-//		mav.addObject("user", user);
-//		mav.addObject("rolename", rnm);
-//		mav.addObject("list", roleService.select_afterupdateU_R(userId)) ;
+		int uid=userservice.selct_UIdByUNM(userName);
+		int rid = roleService.selectRidbyRnm(rolename);
+		roleService.updateU_R(uid,rid);
+		RootSelect rs = roleService.select_afterupdateU_R(uid) ;
+		mav.addObject("rs",rs ) ;
 		mav.setViewName("afterchange");
 		return mav ;
 	}

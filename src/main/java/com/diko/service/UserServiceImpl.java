@@ -32,5 +32,9 @@ public class UserServiceImpl implements UserService{
 		usermapper.updateuser(id);
 		
 	}
+	@Override
+	public int selct_UIdByUNM(String userName) {
+		return usermapper.selct_UIdByUNM(userName);
+	}
 
 }

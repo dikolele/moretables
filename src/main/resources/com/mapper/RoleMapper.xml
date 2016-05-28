@@ -16,11 +16,15 @@
 
 </select>
 
-<update id="updateU_R" parameterType="int">
-	update user_role
+<select id="selectRidbyRnm" resultType="int" parameterType="String">
+	select role_id from role where role_name=#{roleName}
+</select>
+<update id="updateU_R" >
+	update user_role 
 		set role_id=#{roleId}
+		where user_id=#{userId}
 </update>
-<select id="select_afterupdateU_R" resultMap="list" parameterType="int" >
+<select id="select_afterupdateU_R" resultType="RootSelect" parameterType="int" >
 	select user.user_id,user.user_name,role.role_name
 	from user 
 	join user_role on user_role.user_id=user.user_id

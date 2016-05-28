@@ -11,4 +11,5 @@ public interface UserService {
 	public User selectUserById(int id);
 	//更新用户信息
 	public void updateuser(int id);
+	public  int selct_UIdByUNM(String userName);
 }

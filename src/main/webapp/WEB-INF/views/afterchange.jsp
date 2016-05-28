@@ -17,8 +17,8 @@
 
 	<tr>
 <%-- 			<td>${user.userId}</td> --%>
-			<td>${user.userName}</td>
-			<td>${rolename}</td>
+			<td>${rs.userName}</td>
+			<td>${rs.roleName}</td>
 	</tr>
 
 
